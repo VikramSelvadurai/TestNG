@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/user")
-@RequiredArgsConstructor
 public class UserLoginController {
 
     private final UserService userService;
+
+    public UserLoginController(UserService userService) {
+        this.userService = userService;
+    }
 
 
     @PostMapping(value = "/add-user")

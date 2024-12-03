@@ -3,11 +3,11 @@ package com.example.ngtest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class NgtestApplication {
+@SpringBootApplication(scanBasePackages = "com.example.**")
+public class TestNGApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NgtestApplication.class, args);
+        SpringApplication.run(TestNGApplication.class, args);
     }
 
 }

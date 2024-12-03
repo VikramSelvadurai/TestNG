@@ -4,15 +4,19 @@ import com.example.ngtest.user.add.assembler.UserAssembler;
 import com.example.ngtest.user.add.entity.UserEntity;
 import com.example.ngtest.user.add.request.UserRequestBean;
 import com.example.ngtest.user.add.response.UserResponseBean;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
-@Component
-@RequiredArgsConstructor
+import org.springframework.stereotype.Service;
+
+@Service
 public class UserRepositoryService {
 
     private final UserRepository userRepository;
     private final UserAssembler userAssembler;
+
+    public UserRepositoryService(UserRepository userRepository, UserAssembler userAssembler) {
+        this.userRepository = userRepository;
+        this.userAssembler = userAssembler;
+    }
 
 
     public UserResponseBean addUser(UserRequestBean userRequestBean) {
@@ -25,8 +29,8 @@ public class UserRepositoryService {
                 .firstName(userRequestBean.getFirstName())
                 .lastName(userRequestBean.getLastName())
                 .build();
-        userRepository.save(userEntity);
+        UserEntity entity = userRepository.save(userEntity);
 
-        return userAssembler.toModel(userEntity);
+        return userAssembler.toModel(entity);
     }
 }
