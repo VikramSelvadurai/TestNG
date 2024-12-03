@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/home/p3/IdeaProjects/ngtest">
+        <classes>
+            <class name="com.example.ngtest.user.add.repository.UserRepositoryServiceTest">
+                <methods>
+                    <include name="aFastTest"/>
+                    <include name="aSlowTest"/>
+                    <include name="addUser"/>
+                </methods>
+            </class>
+            <class name="com.example.ngtest.user.add.service.UserServiceTest">
+                <methods>
+                    <include name="aFastTest"/>
+                    <include name="aSlowTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

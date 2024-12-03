@@ -1,0 +1,65 @@
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+  profiles:
+    active: external
+  main:
+    log-startup-info: true
+  application:
+    name: archon-p360
+  security:
+    user:
+      password: password
+      name: username
+  jpa:
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+        provider_disables_autocommit: false
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Test_NG?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: adsuser
+    password: AdS@3421
+    hikari:
+      connection_timeout: 20000
+      maximum-pool-size: 20
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: group_id
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringSerializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonSerializer
+    listener:
+      concurrency: 10
+      type: batch
+    admin:
+      fail-fast: true
+    auto-offset-reset: latest
+
+server:
+  port: 8082
+  error:
+    include-exception: off
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: on_param
+    whitelabel:
+      enabled: false
+  ssl:
+    enabled: false
+    key-alias:
+    key-store:
+    key-store-type:
+    key-store-password:
+    key-password:
+  servlet:
+    context-path: /test-ng/api
