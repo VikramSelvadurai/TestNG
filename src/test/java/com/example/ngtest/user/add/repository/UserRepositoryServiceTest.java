@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-@SpringBootTest
+//@SpringBootTest
 public class UserRepositoryServiceTest extends AbstractTestNGSpringContextTests {
 
     private final UserRepositoryService userRepositoryService;
@@ -27,10 +27,10 @@ public class UserRepositoryServiceTest extends AbstractTestNGSpringContextTests 
                 .password("password")
                 .firstName("firstName")
                 .lastName("lastName")
-                .username("username")
+                .username("signintets")
                 .build();
         UserResponseBean userResponseBean = userRepositoryService.addUser(userRequestBean);
-        Assert.assertTrue(userResponseBean.getUsername().equals("username"));// assertNotNull(userResponseBean);
+        Assert.assertTrue(userResponseBean.getUsername().equals("signintets"));// assertNotNull(userResponseBean);
     }
 
 }

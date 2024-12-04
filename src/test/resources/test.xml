@@ -3,7 +3,8 @@
 <suite name="All Test Suite">
     <test name="Service test">
         <classes>
-            <class name="com.example.ngtest.TestNGApplicationTests"></class>
+            <class name="com.example.ngtest.user.add.service.UserServiceTest"></class>
+            <class name="com.example.ngtest.student.Repository.StudentRepositoryServiceTest"></class>
         </classes>
     </test>
 </suite>

@@ -28,10 +28,10 @@ class TestNGApplicationTests extends AbstractTestNGSpringContextTests {
                 .password("password")
                 .firstName("firstName")
                 .lastName("lastName")
-                .username("username")
+                .username("tetsinguma")
                 .build();
         UserResponseBean userResponseBean = userRepositoryService.addUser(userRequestBean);
-        Assert.assertTrue(userResponseBean.getUsername().equals("username"));// assertNotNull(userResponseBean);
+        Assert.assertTrue(userResponseBean.getUsername().equals("tetsinguma"));// assertNotNull(userResponseBean);
     }
 
 }
