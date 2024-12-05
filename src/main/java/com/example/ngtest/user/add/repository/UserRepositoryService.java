@@ -1,11 +1,15 @@
 package com.example.ngtest.user.add.repository;
 
+import com.example.ngtest.user.add.UserIdNotFoundException;
 import com.example.ngtest.user.add.assembler.UserAssembler;
 import com.example.ngtest.user.add.entity.UserEntity;
 import com.example.ngtest.user.add.request.UserRequestBean;
 import com.example.ngtest.user.add.response.UserResponseBean;
 
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UserRepositoryService {
@@ -19,7 +23,11 @@ public class UserRepositoryService {
     }
 
 
-    public UserResponseBean addUser(UserRequestBean userRequestBean) {
+    public UserResponseBean addUser(UserRequestBean userRequestBean) throws ResourceAlreadyExistException {
+
+        if(userRepository.existsByUsernameIgnoreCase(userRequestBean.getUsername())){
+            throw new ResourceAlreadyExistException("User name '"+userRequestBean.getUsername()+"' already exists");
+        }
 
         UserEntity userEntity = UserEntity.builder()
                 .username(userRequestBean.getUsername())
@@ -32,5 +40,14 @@ public class UserRepositoryService {
         UserEntity entity = userRepository.save(userEntity);
 
         return userAssembler.toModel(entity);
+    }
+
+    public UserEntity findById(UUID userId) throws UserIdNotFoundException {
+        Optional<UserEntity> userEntityOptional = userRepository.findById(userId);
+        return userEntityOptional.orElseThrow(() -> new UserIdNotFoundException("'"+userId+"' Not Found"));
+    }
+
+    public void deleteById(UUID userId) {
+        userRepository.deleteById(userId);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.ngtest;
 
 import com.example.ngtest.user.add.enums.UserStatus;
+import com.example.ngtest.user.add.repository.ResourceAlreadyExistException;
 import com.example.ngtest.user.add.repository.UserRepositoryService;
 import com.example.ngtest.user.add.request.UserRequestBean;
 import com.example.ngtest.user.add.response.UserResponseBean;
@@ -20,7 +21,7 @@ class TestNGApplicationTests extends AbstractTestNGSpringContextTests {
 
 
     @Test
-    public void addUser() {
+    public void addUser() throws ResourceAlreadyExistException {
 
         UserRequestBean userRequestBean = UserRequestBean.builder()
                 .userStatus(UserStatus.ACTIVE)

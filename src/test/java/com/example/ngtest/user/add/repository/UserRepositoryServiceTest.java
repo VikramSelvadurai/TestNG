@@ -19,7 +19,7 @@ public class UserRepositoryServiceTest extends AbstractTestNGSpringContextTests 
 
 
     @Test
-    public void addUser() {
+    public void addUser() throws ResourceAlreadyExistException {
 
         UserRequestBean userRequestBean = UserRequestBean.builder()
                 .userStatus(UserStatus.ACTIVE)
