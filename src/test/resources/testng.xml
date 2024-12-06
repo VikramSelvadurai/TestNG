@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
+    <parameter name="pdfngreport-properties" value="/home/p3/IdeaProjects/ngtest/src/test/resources/test-output/pdfngreport.properties" />
+    <listeners>
+        <listener class-name="com.uttesh.pdfngreport.PDFReportListener" />
+    </listeners>
     <test name="Service test">
         <classes>
-            <class name="com.example.ngtest.TestNGApplicationTests"></class>
+<!--            <class name="com.example.ngtest.TestNGApplicationTests"></class>-->
+            <class name="com.example.ngtest.user.add.controller.UserLoginControllerTest"></class>
         </classes>
     </test>
 </suite>

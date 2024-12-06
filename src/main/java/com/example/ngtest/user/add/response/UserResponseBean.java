@@ -16,12 +16,8 @@ import java.util.UUID;
 public class UserResponseBean extends RepresentationModel<UserResponseBean> {
     private UUID userId;
     private String username;
-    private String password;
     private String firstName;
     private String lastName;
     private String email;
     private UserStatus userStatus;
-
-    public UserResponseBean(String username) {
-    }
 }
