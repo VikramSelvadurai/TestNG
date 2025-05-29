@@ -66,9 +66,14 @@ dependencies {
 
 
 }
-//
-//test {
-//    useTestNG(){
-//        suites 'src/test/resources/testng.xml'
-//    }
+
+test {
+    useTestNG()
+            {
+        suites 'src/test/resources/userRepository.xml'
+    }
+}
+
+//tasks.test {
+//    useTestNG()
 //}

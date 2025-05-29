@@ -6,12 +6,11 @@ import org.springframework.hateoas.RepresentationModel;
 import java.util.UUID;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @ToString
-@Setter
-@Getter
 public class EmployeeResponseBean extends RepresentationModel<EmployeeResponseBean> {
     private UUID employeeId;
     private String name;

@@ -17,7 +17,7 @@ public class StudentRepositoryServiceTest extends AbstractTestNGSpringContextTes
     public void testAddStudent() {
 
         StudentRequestBean studentRequestBean = StudentRequestBean.builder()
-                .name("vikram")
+                .name("vikramTest")
                 .address("selliyamamnkovil street")
                 .phoneNumber("4632095823057")
                 .department("Developer")

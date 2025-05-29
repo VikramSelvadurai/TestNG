@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.UUID;
 @SpringBootTest
-@ActiveProfiles("test")
+//@ActiveProfiles("test")
 public class UserLoginControllerTest {
 
     Gson gson = new Gson();
